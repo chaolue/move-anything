@@ -53,7 +53,7 @@ then
 fi
 
 # $ssh_ableton rm -fr ./control_surface_move
-$scp_ableton "$filename $username@$hostname:."
+scp  -o ConnectTimeout=1 $filename ableton@move.local:.
 $ssh_ableton "tar -xvf ./$filename"
 
 $ssh_ableton "killall MoveLauncher Move MoveOriginal"
