@@ -32,7 +32,7 @@ filename=control_surface_move.tar.gz
 hostname=move.local
 username=ableton
 ssh_ableton="ssh -o LogLevel=QUIET -n $username@$hostname"
-scp_ableton="scp -o ConnectTimeout=1"
+scp_ableton="scp -o ConnectTimeout=3"
 ssh_root="ssh -o LogLevel=QUIET -n root@$hostname"
 
 echo "Downloading build...$url$filename"
@@ -40,7 +40,7 @@ curl -LO "$url$filename"
 echo "Build MD5: `md5sum $filename`"
 
 echo "Connecting via ssh to $ssh_ableton..."
-if ! $ssh_ableton -o ConnectTimeout=1 ls &> /dev/null
+if ! $ssh_ableton -o ConnectTimeout=3 ls &> /dev/null
 then
     echo
     echo "Error: Could not connect to $hostname using SSH."
