@@ -166,8 +166,8 @@ const banksDef = [
     },
     {
         bank: 8,
-        ccMap: [ // CC120 - CC128
-            [71, 120], [72, 121], [73, 122], [74, 124], [75, 125], [76, 126], [77, 127], [78, 128], [79, 129]
+        ccMap: [ // CC85-93 (avoiding reserved CCs 120-127)
+            [71, 85], [72, 86], [73, 87], [74, 88], [75, 89], [76, 90], [77, 91], [78, 92], [79, 93]
         ],
         colorSweep: neutralColorSweep,
         knobs: [112, 112, 112, 112, 112, 112, 112, 112, 112],
@@ -220,7 +220,7 @@ export function loadConfig() {
     }
 }
 
-function saveConfig() {
+export function saveConfig() {
     var f, fname = "m8config.json";
 
     f = std.open(fname, "w");
